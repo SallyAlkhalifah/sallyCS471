@@ -1,0 +1,16 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %} Book Details {% endblock title %}
+
+{% block content %}
+    <a href="{% url "books.list_books" %}">Go Back</a>
+
+    <h1>Internet & World Wide Web How to Program</h1>
+    <h2>Language - English</h2>
+    <h2>Authors:  Harvey and Paul Dietel </h2>
+    <p><strong>Internet & World Wide Web How to Program, 5/e</strong> provides a clear, simple, engaging introduction to Internet and web programming.</p>
+
+    <img src="{% static 'book1.jpg' %}" alt="Book1 img desc" width="200" height="200">
+{% endblock content %}
