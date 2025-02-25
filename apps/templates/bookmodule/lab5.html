@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>lab5</title>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>  
+
+  <!-- task 1 -->
+    <a href="https://myqu.qu.edu.sa/" class="link1">Go to QU website (open a new tab)</a>
+    <a href="https://myqu.qu.edu.sa/" class="link2">Go to QU website (open in the same page)</a>
+    <a href="https://myqu.qu.edu.sa/" class="link3">Go to QU website (open in the same page)</a>
+
+    <!-- task 2 -->
+    <h1 >Example of Formatting tags</h1>
+    <p>This text has <b>subtext</b> using b tag</p>
+    <p>This text has <strong>subtext</strong> using strong tag</p>
+    <p>This text has <i>subtext</i> using i tag</p>
+    <p>This text has <em>subtext</em> using emphasize tag</p>
+    <p>This text has <small>subtext</small> using small tag</p>
+    <p>This text has <mark>subtext</mark> using mark tag</p>
+    <p>This text has <del>subtext</del> using del tag</p>
+    <p>This text has <ins>subtext</ins> using ins tag</p>
+    <p>This text has X<sub>subtext</sub> using sub tag</p>
+    <p>This text has X<sup>subtext</sup> using sup tag</p>
+
+    <!-- task 3 -->
+    <h2>The Best features of the Internet</h2>
+    
+    <ul>
+        <li>You can meet new people from countries around the world.</li>
+        <li>You have access to new media as it becomes public:</li>
+            <ul>
+                <li>New games</li>
+                <li>New applications</li>
+                  <ol>
+                    <li>For business</li>
+                    <li>For pleasure</li>
+                 </ol>
+                <li>Around the clock news</li>
+                <li>Search engines</li>
+                <li>Shopping</li>
+                <li>Programming</li>
+                  <ol>
+                    <li>XML</li>
+                    <li>Java</li>
+                    <li>HTML5</li>
+                    <li>JavaScript</li>
+                    <li>New languages</li>
+
+                  </ol>
+            </ul>
+        <li>Links</li>
+        <li>Keeping in touch with old friends</li>
+        <li>It's the technology of the future!</li>
+    </ul>    
+
+ <!-- task 4 -->
+
+ <table class="table"> 
+     <caption><strong>Table 1: Table of Fruits and Their Prices</strong></caption>
+
+     <tr>
+         <th>Fruit</th>
+         <th>Price</th>
+     </tr>
+     <tr>
+         <td>Apple</td>
+         <td>$0.25</td>
+     </tr>
+     <tr>
+         <td>Orange</td>
+         <td>$0.50</td>
+     </tr>
+     <tr>
+         <td>Banana</td>
+         <td>$1.00</td>
+     </tr>
+     <tr>
+         <td>Pineapple</td>
+         <td>$2.00</td>
+     </tr>
+     <tr>
+         <td><strong>Total</strong></td>
+         <td><strong>$3.75</strong></td>
+     </tr>
+
+ </table>
+
+
+ <table class="table2">
+    <caption>Table 2: A more complex sample table</caption>
+    <tr>
+        <td rowspan="2">
+            <img src="{% static 'lab5.jpg' %}" alt="Camel Image" width="200">
+        </td>
+        <td colspan = "4" ><strong>Camelid comparison<br>Approximate as of 6/2011</strong></td>
+   
+    </tr>
+    <tr>
+
+        <th># of humps</th>
+        <th>Indigenous region</th>
+        <th>Spits?</th>
+        <th>Produces wool?</th>
+    </tr>
+    <tr>
+        <td><strong>Dromedary</strong></td>
+        <td>1</td>
+        <td>Arabian Peninsula</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><strong>Camels</strong></td>
+        <td>2</td>
+        <td >Africa/Asia</td>
+        <td>Yes</td>
+        <td>Yes</td>
+    </tr>
+    <tr>
+        <td><strong>Llamas</strong></td>
+        <td>1</td>
+        <td>Andes Mountains</td>
+        <td>Yes</td>
+        <td>Yes</td>
+
+    
+    </tr>
+ </table>
+ 
+
+</body>  
