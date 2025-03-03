@@ -1,7 +1,24 @@
 {% with request.resolver_match.url_name as url_name %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="topnav">
     <a class="{% if url_name == 'books.index' %}active{% endif %}" href="{% url "books.index" %}"> Home </a>
     <a class="{% if url_name == 'books.list_books' %}active{% endif %}" href="{% url "books.list_books" %}"> List Books </a>
     <a class="{% if url_name == 'books.aboutus' %}active{% endif %}" href="{% url "books.aboutus" %}"> About </a>
 </div>
+<br/> 
+<form class="searchForm" method="post" action="{% url "books.search" %}">
+    {% csrf_token %} 
+    <label>Keywords:</label>
+    <input type="text" name="keyword" placeholder="enter a keyword"/>
+    <br/> 
+    <br/> 
+    <label> Search in:</label>
+    <input type="checkbox" name="option1"/><label><b>Title</label>
+    <input type="checkbox" name="option2"/><label>Author</b></label>
+    <br/>
+    <br/> 
+    
+    <button type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+</form>
 {% endwith %}

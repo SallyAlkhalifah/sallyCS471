@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block title %} Searching Page {% endblock title %}
+{% block stylesheets %}
+<style>
+    .searchForm{
+        margin-top: 20px;
+    }
+ 
+    button {
+        color: #fff;
+        background-color:rgb(113, 12, 42);
+        border-color:rgb(93, 10, 37);
+        border: none;
+        padding: 12px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px; 
+        transition-duration: 0.4s;
+        cursor: pointer; /* hand pointer */
+    }
+    button:hover {
+        background-color: green;
+        color: white; 
+    }
+  
+</style>
+{% endblock stylesheets %}
+ 
+{% block content %}
+<form class="searchForm" method="post" action="">
+    {% csrf_token %} 
+    <label>Keywords:</label>
+    <input type="text" name="keyword" placeholder="enter a keyword"/>
+    <br/> 
+    <br/> 
+    <label> Search in:</label>
+    <input type="checkbox" name="option1"/><label><b>Title</label>
+    <input type="checkbox" name="option2"/><label>Author</b></label>
+    <br/>
+    <br/> 
+    
+    <button type="submit" ><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+</form>
+{% endblock content %}
+</html>
