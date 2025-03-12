@@ -1,5 +1,16 @@
 {% with request.resolver_match.url_name as url_name %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% block stylesheet  %}
+<style>
+    .topnav a {
+        color: #9b1919;
+        text-align: center;
+        margin-right: 25px;
+        text-decoration: none !important ;
+        font-size: 17px;
+      }
+</style>     
+{% endblock stylesheet %} 
 
 <div class="topnav">
     <a class="{% if url_name == 'books.index' %}active{% endif %}" href="{% url "books.index" %}"> Home </a>

@@ -3,24 +3,37 @@
 {% load static %}
 
 {% block title %} List of Books {% endblock title %}
+
 {% block content %}
+
 <h1> books </h1>
+
+
+
 {% if books %}
 <table border>
  <tr>
-  <td> tital </td>
+  <td>  ID    </td>
+  <td> tital  </td>
   <td> auther </td>
+  <td> price  </td>
+  <td> edition </td>
+
  </tr>
 
  {% for i in books %}
  <tr>
+    <td>{{i.id}}</td> 
     <td>{{i.title}}</td>
-    <td>{{i.author}}</td>  
+    <td>{{i.author}}</td>
+    <td>{{i.price}}</td>
+    <td>{{i.edition}}</td>
+
+
  </tr>
 {%endfor%}
 </table>  
 {%endif%}
-
 
 
 
