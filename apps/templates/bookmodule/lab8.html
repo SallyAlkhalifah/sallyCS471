@@ -1,0 +1,47 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block title %} lab8 {% endblock title %}
+
+{% block content %}
+
+<h1>lab8</h1>
+
+
+
+{% if books %}
+<table border>
+ <tr>
+  <td>  ID    </td>
+  <td> tital  </td>
+  <td> auther </td>
+  <td> price  </td>
+  <td> edition </td>
+
+ </tr>
+
+ {% for i in books %}
+ <tr>
+    <td>{{i.id}}</td> 
+    <td>{{i.title}}</td>
+    <td>{{i.author}}</td>
+    <td>{{i.price}}</td>
+    <td>{{i.edition}}</td>
+
+
+ </tr>
+{%endfor%}
+</table>  
+{%endif%}
+<h2 class="h22">Book Statistics</h2>
+        <ul>
+            <li><b>Total Books:</b> {{ stats.totalbooks }}</li>
+            <li><b>Total Price:</b>  {{ stats.totalprice }} $ </li>
+            <li><b>Average Price:</b> {{ stats.average }} $ </li>
+            <li><b>Max Price:</b>     {{ stats.max }} $ </li>
+            <li><b>Min Price:</b>     {{ stats.min }} $ </li>
+        </ul>
+
+ {% endblock content %}

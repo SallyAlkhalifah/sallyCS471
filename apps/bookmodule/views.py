@@ -4,6 +4,9 @@ from django.http import HttpResponse
 
 from .models import Book
 
+from django.db.models import Q, Count, Sum, Avg, Max, Min
+
+
 #def index(request): 
   #name = request.GET.get("name") or "world!"
  # return render(request, "bookmodule/index.html" , {"name": name})  #your render line
@@ -63,6 +66,7 @@ def search(request):
     return render(request, 'bookmodule/search.html')
 
 
+#lab7
 def simple_query(request):
 
  mybooks=Book.objects.filter(title__icontains='and') # <- multiple objects
@@ -72,6 +76,8 @@ def simple_query(request):
  else:
      return render(request, 'bookmodule/index.html')
 
+
+
 def complex_query(request):
 
  mybooks=books=Book.objects.filter(author__isnull = False).filter(title__icontains='nd').filter(edition__gte = 2).exclude(price__lte = 200)[:10]
@@ -80,3 +86,30 @@ def complex_query(request):
      return render(request, 'bookmodule/list_books.html', {'books':mybooks})
  else:
      return render(request, 'bookmodule/index.html')
+ 
+#lab8
+def task1(request):
+    mybooks = Book.objects.filter(Q(price__lte = 80))
+    return render(request, 'bookmodule/lab8.html', {'books':mybooks})
+ 
+def task2(request):
+    mybooks = Book.objects.filter(Q(edition__gt = 3) & (Q(title__icontains='co') | Q(author__icontains='co')))
+    return render(request, 'bookmodule/lab8.html', {'books': mybooks})
+
+def task3(request):
+    mybooks = Book.objects.filter(~Q(edition__gt = 3) & (~Q(title__icontains='co') | Q(author__icontains='co')))
+    return render(request, 'bookmodule/lab8.html', {'books': mybooks})
+
+def task4(request):
+    mybooks = Book.objects.all().order_by('title')
+    return render(request, 'bookmodule/lab8.html', {'books': mybooks})
+
+def task5(request):
+    stats = Book.objects.aggregate(
+        totalbooks=Count('id'),
+        totalprice=Sum('price'),
+        average=Avg('price'),
+        max=Max('price'),
+        min=Min('price')
+    )
+    return render(request, 'bookmodule/lab8.html', {'stats': stats})

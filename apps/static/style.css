@@ -1,6 +1,5 @@
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #f90c0c;
     width: 100%;
     text-decoration: none !important ;
 
@@ -9,8 +8,6 @@
   /* Style the links inside the navigation bar */
   .topnav a {
     color: #9b1919;
-    text-align: center;
-    margin-right: 25px;
     text-decoration: none !important ;
     font-size: 17px;
   }
@@ -23,9 +20,9 @@
   /* task 1 lab5  */
 
   a{
-    padding: 18px;
+   /* padding: 18px;
     display: block;
-    text-align: center;
+    text-align: center;*/
     color: blue;
     text-decoration: none !important ;
 
@@ -68,7 +65,7 @@
      
   /* task 2 lab5  */
 
-  h1 {
+  .lab51 {
     background-color: beige;
     color: green;
     padding: 18px;
@@ -78,7 +75,7 @@
 
 
   /* task 3 lab5  */
-  h2 {
+  .lab52 {
     background-color: rgb(89, 153, 152);
     color: rgb(244, 246, 244);
     padding: 18px;
@@ -113,4 +110,10 @@
   margin: 20px auto;
   text-align: center;
   border-collapse: collapse;
+}
+
+.h22 {
+
+  color:#9b1919; 
+  
 }
