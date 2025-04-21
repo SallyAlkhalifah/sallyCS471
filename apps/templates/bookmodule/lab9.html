@@ -1,0 +1,48 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block title %} lab9 {% endblock title %}
+
+{% block content %}
+
+<h1>lab9</h1>
+
+
+
+{% if books %}
+<table border>
+ <tr>
+  <td> Publisher name </td>
+  <td> title </td>
+  <td> oldest_pubdate </td>
+  <td> avg_price</td>
+  <td> num_books</td>
+  <td> book_count </td>
+  <td> author_count</td>
+
+
+ </tr>
+
+ {% for i in books %}
+ <tr>
+    <td>{{i.name}}</td> 
+    <td>{{i.title}}</td> 
+    <td>{{i.oldest_pubdate}}</td>
+    <td>{{i.avg_price}}</td>
+    <td>{{i.num_books}}</td>
+    <td>{{i.book_count}}</td>
+    <td>{{i.author_count}}</td>
+
+    
+
+
+
+   
+</tr>
+{%endfor%}
+</table>  
+{%endif%}
+
+{% endblock %}

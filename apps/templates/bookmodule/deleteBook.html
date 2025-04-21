@@ -1,0 +1,15 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Delete Book {% endblock %}
+
+{% block content %}
+
+<h3>Deleting a Book</h3>
+<form method = "post">
+{% csrf_token %}
+Are you sure to delete the book <strong>{{obj.title}}</strong> ?
+<br>
+<br>
+<button type="submit">Delete Book</button>
+</form>
+{% endblock content %}

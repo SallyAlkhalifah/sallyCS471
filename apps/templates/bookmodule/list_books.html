@@ -6,50 +6,29 @@
 
 {% block content %}
 
-<h1> books </h1>
+<h1> list of books </h1>
+
+<ol >
+  {% for i in books %}
+    <li  >
+      <strong>ID:</strong> {{ i.id }} <br>
+      <strong>Title:</strong> {{ i.title }} <br>
+      <strong>Price:</strong> {{ i.price }} $ <br>
+      <strong>Publisher:</strong> {{ i.publisher.name }} <br>
+      <strong>Authors:</strong>
+      {% for author in i.author.all %}
+        {{ author.name }}{% if not forloop.last %}, {% endif %}
+      {% empty %}
+        No authors
+      {% endfor %}
+      <a href="{% url 'books.updatebook' i.id %}"style = 'color : green ; ' >  update Book  </a>
+      <a href="{% url 'books.updatebookf' i.id %}" >  update Book form    </a>
+      <a href="{% url 'deleteBook' i.id %}" style = 'color : red ; '>  delete Book    </a>
 
 
+    </li>
+    <br>
+  {% endfor %}
+</ol>
 
-{% if books %}
-<table border>
- <tr>
-  <td>  ID    </td>
-  <td> tital  </td>
-  <td> auther </td>
-  <td> price  </td>
-  <td> edition </td>
-
- </tr>
-
- {% for i in books %}
- <tr>
-    <td>{{i.id}}</td> 
-    <td>{{i.title}}</td>
-    <td>{{i.author}}</td>
-    <td>{{i.price}}</td>
-    <td>{{i.edition}}</td>
-
-
- </tr>
-{%endfor%}
-</table>  
-{%endif%}
-
-
-
-
-    <h1>List of Books</h1>
-    <a href="{% url 'books.view_one_book' bookId=1 %}"><h2>Internet & World Wide Web How to Program</h2></a>
-    <a href="{% url 'books.view_one_book' bookId=1 %}"><img src="{% static 'book1.jpg' %}" alt="Book1 img desc" width="200" height="200"></a>
-    <hr>
-
-    <h2>2) C++ How to Program, Late Objects Version</h2>
-    <img src="{% static 'book2.jpg' %}" alt="Book2 img desc" width="200" height="200">
-    <hr>
-
-    <h2>3) Python Programming: 3 books in 1 </h2>
-    <img src="{% static 'book3.jpg' %}" alt="Book3 img desc" width="200" height="200">
-    <hr>
-
-
- {% endblock content %}
+{% endblock content %}

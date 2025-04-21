@@ -1,0 +1,30 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+
+{% block title %} onebook {% endblock title %}
+
+{% block content %}
+
+<h1>lab10 - one book</h1>
+
+
+
+<h2 style = 'color: blue ;'>{{ books.title }}</h2>
+<p><b>Price:</b> {{ books.price }} $ </p>
+<p><b>Rating:</b> {{ books.rating }}</p>
+<p><b>Publisher:</b> {{ books.publisher.name }}</p>
+
+<p><b>Authors:</b></p>
+<ul>
+    {% for author in books.author.all %}
+    {{ author.name }}{% if not forloop.last %}, {% endif %}
+{% empty %}
+    No authors
+{% endfor %}
+
+</ul>
+
+
+{% endblock content %}

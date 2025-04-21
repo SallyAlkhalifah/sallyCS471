@@ -1,0 +1,47 @@
+{% extends "layouts/base.html" %}
+
+{% load static %}
+
+{% block title %} List of Books {% endblock title %}
+
+{% block content %}
+
+<h1> books </h1>
+
+
+<table border>
+ <tr>
+  <td>  ID    </td>
+  <td> title  </td>
+  <td> auther </td>
+  <td> price  </td>
+  <td> date </td>
+
+ </tr>
+
+ {% for i in books %}
+ <tr>
+   <td>{{i.id}}</td> 
+   <td>{{i.title}}</td>
+   <td>
+
+    {% for author in i.authors.all %}
+      {{ author.name }}{% if not forloop.last %}, {% endif %}
+    {% empty %}
+      No authors
+    {% endfor %}
+    
+  </td>  
+   <td>{{i.price}}</td>
+   <td>{{i.pubdate}}</td>
+
+
+
+
+</tr>
+ {%endfor%}
+</table> 
+
+
+
+{% endblock content %}
